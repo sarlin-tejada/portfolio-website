@@ -6,10 +6,10 @@
     <title>Portfolio Coming Soon | Sarlin Tejada</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: Calibri, Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: #ffffff; /* White background */
+            background: #ffffff;
             color: #000000;
             text-align: center;
             display: flex;
@@ -18,31 +18,39 @@
             align-items: center;
             height: 100vh;
             position: relative;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
         }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
         .header {
             position: absolute;
             top: 20px;
             left: 20px;
-            font-size: 1.5em;
+            font-size: 1.6em; 
             color: #000000;
         }
         .header strong {
             font-weight: bold;
         }
         .job-title {
-            color: #6d9eeb; /* Updated color */
-            text-transform: uppercase; /* Convert to uppercase */
+            color: #6d9eeb; 
+            text-transform: uppercase; 
             font-weight: normal;
         }
         h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
+            font-size: 2.7em; 
+            margin-bottom: 15px;
             color: #6d9eeb;
         }
         .content p {
-            font-size: 1.2em;
-            line-height: 1.6;
-            margin: 0;
+            font-size: 1.3em; 
+            line-height: 1.5; 
+            margin: 5px 0;
         }
         .contact-info {
             font-size: 1.2em;
@@ -51,10 +59,12 @@
         .contact-info a {
             text-decoration: none;
             font-weight: bold;
-            color: #6d9eeb; /* Highlighted text */
+            color: #6d9eeb;
+            transition: color 0.3s ease-in-out;
         }
         .contact-info a:hover {
             text-decoration: underline;
+            color: #4b89dc; 
         }
     </style>
 </head>
@@ -62,15 +72,17 @@
 
     <div class="header"><strong>SARLIN TEJADA</strong> <span class="job-title">| DATA ANALYST</span></div>
 
-    <h1>PORTFOLIO COMING SOON!</h1>
+    <h1>PORTFOLIO COMING SOON! 🎉</h1>
     
     <div class="content">
         <p>I'm always open to conversations about data, analytics, and problem-solving.</p>
-        <p>Whether you’re looking for a data-driven professional or just enjoy discussing insights, let’s connect!</p>
+        <p>Whether you’re looking to hire a data-driven professional or just enjoy discussing insights, let’s connect!</p>
     </div>
 
-    <p class="contact-info">📬 Reach me via <a href="https://www.linkedin.com/in/sarlin-tejada" target="_blank"><strong>LinkedIn</strong></a>, 
-        <a href="mailto:sarlin.tejada@gmail.com"><strong>email</strong></a>, or download my <a href="Sarlin_Tejada_Resume.pdf" download><strong>resume</strong></a>
+    <p class="contact-info">📬 Reach Me via 
+	<a href="mailto:sarlin.tejada@gmail.com"><strong>Sarlin.Tejada@gmail.com</strong></a>, 
+	<a href="https://www.linkedin.com/in/sarlin-tejada" target="_blank"><strong>LinkedIn</strong></a>,
+	or Download My <a href="https://sarlin-tejada.github.io/sarlintejada.com/Sarlin_Tejada_Resume.pdf" target="_blank"><strong>Resume</strong></a>
     </p>
 
 </body>
