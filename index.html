@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Coming Soon | Sarlin Tejada</title>
+
+    <!-- Import Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400&family=Montserrat:wght@500&display=swap" rel="stylesheet">
+
+    <style>
+        /* Reset Default Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Centering Content & Background */
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            background-color: #e6f2f7; 
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            animation: fadeIn 1s ease-in-out;
+            padding: 20px; 
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .portfolio {
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #666;
+            font-weight: 500;
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 10px; 
+        }
+
+        .content {
+            font-size: 4.5rem; 
+            font-weight: normal;
+            color: #333;
+            line-height: 1.1; 
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #666;
+            font-weight: 500;
+            font-family: 'Montserrat', sans-serif;
+            margin-top: 20px; 
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .content {
+                font-size: 3rem; 
+            }
+            .portfolio, .subtitle {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="portfolio">PORTFOLIO</div>
+    <div class="content">
+        COMING <br> SOON
+    </div>
+    <div class="subtitle">SARLIN TEJADA | DATA ANALYST</div>
+
+</body>
+</html>
