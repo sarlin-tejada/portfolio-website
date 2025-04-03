@@ -7,6 +7,10 @@
 
     <!-- Import Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400&family=Montserrat:wght@500&display=swap" rel="stylesheet">
+	
+	<!-- Import Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-0LKMP10F2S"></script>
     <script>
@@ -44,7 +48,34 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
+        
+		.social-links {
+			position: absolute;
+			top: 20px;
+			right: 30px;
+			font-family: 'Montserrat', sans-serif;
+			display: flex;
+			gap: 25px;
+		}
+        
+        .social-links a {
+			color: #333;
+			text-decoration: none;
+			font-size: 0.9rem;
+			display: inline-flex;
+			align-items: center;
+			transition: color 0.2s ease;
+		}
 
+		.social-links a i {
+			margin-right: 6px;
+			font-size: 1.1rem;
+		}
+
+		.social-links a:hover {
+			color: #0077b5;
+		}
+        
         .portfolio {
             font-size: 1rem;
             letter-spacing: 2px;
@@ -84,12 +115,21 @@
     </style>
 </head>
 <body>
-
+    <div class="social-links">
+		<a href="mailto:sarlin.tejada@gmail.com" aria-label="Email">
+			<i class="fas fa-envelope"></i> <span>Email Me</span>
+		</a>
+		<a href="https://www.linkedin.com/in/sarlin-tejada" target="_blank" aria-label="LinkedIn">
+			<i class="fab fa-linkedin"></i> <span>Connect</span>
+		</a>
+		<a href="https://docs.google.com/document/d/1yUxR0lfHdW5UU3_x0f4AKQPnX4fMl0M3RwWvbJiEASM/preview" target="_blank" aria-label="Resume">
+			<i class="fas fa-file-alt"></i> <span>View Resume</span>
+		</a>
+	</div>
     <div class="portfolio">PORTFOLIO</div>
     <div class="content">
         COMING <br> SOON
     </div>
     <div class="subtitle">SARLIN TEJADA | DATA ANALYST</div>
-
 </body>
 </html>
