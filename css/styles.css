@@ -1,4 +1,3 @@
-
 :root {
 	--primary-color: #333;
 	--background-color: #e6f2f7;
@@ -150,6 +149,37 @@ body, .portfolio, .subtitle, .about-message {
 	text-align: center;
 }  
 
+.error-code {
+	font-size: 4.5rem;
+	font-family: 'Montserrat', sans-serif;
+	color: var(--primary-color);
+	margin-bottom: 10px;
+}
+
+.error-message {
+	margin-top: 20px;
+	color: #666;
+	font-family: 'Montserrat', sans-serif;
+}
+  
+.back-home-link {
+	margin-top: 30px;
+}
+  
+.link-nav-style {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	color: var(--primary-color);
+	font-family: 'Montserrat', sans-serif;
+	text-decoration: none;
+	padding: 8px 0;
+}
+  
+.link-nav-style:hover {
+	color: var(--hover-color);
+}
+  
 /* Responsive Design */
 @media (max-width: 768px) {
 	.content {
