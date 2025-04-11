@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting...</title>
+    <script>
+      const base = "https://sarlintejada.com";
+      const hash = window.location.hash.replace("#", "");
+
+      const redirects = {
+        "linkedin-header": "?utm_source=linkedin&utm_medium=header&utm_campaign=portfolio",
+        "linkedin-feature": "?utm_source=linkedin&utm_medium=featured&utm_campaign=portfolio",
+        "resume": "?utm_source=resume&utm_medium=gdoc&utm_campaign=portfolio",
+      };
+
+      const redirectTo = redirects[hash] || "";
+      const destination = `${base}/${redirectTo}`;
+
+      // redirect immediately
+      window.location.href = destination;
+    </script>
+  </head>
+  <body>
+    <p>Redirecting... If you are not redirected, <a id="manualLink" href="#">click here</a>.</p>
+    <script>
+      document.getElementById("manualLink").href = destination;
+    </script>
+  </body>
+</html>
