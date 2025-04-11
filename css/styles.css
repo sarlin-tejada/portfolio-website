@@ -24,7 +24,7 @@ body {
 	padding: 20px;
 }
 
-body, .portfolio, .subtitle {
+body, .portfolio, .subtitle, .about-message {
 	font-family: 'Montserrat', sans-serif;
 }
   
@@ -115,6 +115,40 @@ body, .portfolio, .subtitle {
 	font-weight: 500;
 	margin-top: 20px;
 }
+
+.branding {
+	position: absolute;
+	top: 20px;
+	left: 30px;
+	text-transform: uppercase;
+	font-size: 0.9rem;
+	letter-spacing: 1.5px;
+}
+  
+.branding a {
+	text-decoration: none;
+	color: var(--primary-color);
+}
+  
+.branding a:hover {
+	color: #aaa;
+}
+
+.soft-divider {
+	width: 60px;
+	border: none;
+	border-top: 1px solid #ccc;
+	margin: 30px auto 20px;
+  }
+  
+.about-message {
+	margin-top: 40px;
+	max-width: 700px;
+	color: #333;
+	font-size: 1em;
+	line-height: 1.6;
+	text-align: center;
+}  
 
 /* Responsive Design */
 @media (max-width: 768px) {
