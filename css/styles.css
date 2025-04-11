@@ -27,10 +27,6 @@ body {
 body, .portfolio, .subtitle, .about-message {
 	font-family: 'Montserrat', sans-serif;
 }
-  
-.content {
-	font-family: 'Playfair Display', serif;
-}
 
 .menu-dropdown a:hover,
 .menu-dropdown a:hover i,
@@ -103,11 +99,12 @@ body, .portfolio, .subtitle, .about-message {
 	margin-bottom: 10px;
 }
 
-.content {
+.hero-title {
 	font-size: 4.5rem;
 	font-weight: normal;
 	color: #333;
 	line-height: 1.1;
+	font-family: 'Playfair Display', serif;
 }
 
 .subtitle {
@@ -146,8 +143,8 @@ body, .portfolio, .subtitle, .about-message {
 	margin: 2rem auto; 
 	font-size: 1rem; 
 	line-height: 1.6;
-  }
-  
+}
+
 .about-message {
 	margin-top: 40px;
 	max-width: 700px;
@@ -166,7 +163,7 @@ body, .portfolio, .subtitle, .about-message {
 	object-fit: cover; 
 	object-position: 40% center; 
 	box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}  
+}
 
 .error-code {
 	font-size: 4.5rem;
@@ -200,13 +197,19 @@ body, .portfolio, .subtitle, .about-message {
 }
   
 /* Responsive Design */
-@media (max-width: 768px) {
-	.content {
+@media (max-width: 480px) {
+	.hero-title {
 		font-size: 3rem;
 	}
 
 	.portfolio,
 	.subtitle {
 		font-size: 0.9rem;
+	}
+
+	.about-photo {
+		float: none;
+		display: block;
+		margin: 0 auto 1.5rem auto;
 	}
 }
