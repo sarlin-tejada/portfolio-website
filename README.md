@@ -21,13 +21,13 @@ This is a personal portfolio  project—**not an open-source** template or theme
 ## Usage & Collaboration
 
 This project is public **only to support GitHub Pages hosting** and allow visitors to view the live site.  
-It is **not intended for reuse or contributions** at this time.
+It is provided for **view-only access** and is **not intended for reuse or contributions** at this time.
 
 You're welcome to explore and draw inspiration—just please do not copy or redistribute content or code without permission.
 
 **Connect with me:** [LinkedIn](https://www.linkedin.com/in/sarlin-tejada) | [Email](mailto:sarlin.tejada@gmail.com)
 
 ## License
-All rights reserved. This project is publicly available for personal review and portfolio evaluation only.  
-You may **not** copy, reuse, modify, or distribute any part of this codebase without prior written permission.
+**All rights reserved.** This project is publicly available for personal review and portfolio evaluation purposes only.  
+For license details, see the [LICENSE](./LICENSE) file.
 
