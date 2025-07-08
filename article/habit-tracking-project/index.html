@@ -1,0 +1,476 @@
+<!--
+  -----------------------------------------------------------------------------
+  This file is part of a personal project by Sarlin Tejada, shared for portfolio purposes only.
+  All rights reserved. This code is provided for view-only access.
+
+  Do not copy, modify, reuse, or distribute without prior written permission.
+  For license details, see the LICENSE file in the root of this repository.
+  -----------------------------------------------------------------------------
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Habit Tracking Project | Sarlin Tejada</title>
+    <meta name="description" content="A personal analytics pipeline that turns calendar data into weekly habit insights.">
+    <meta property="og:title" content="From Routine to Insight – Habit Tracking Dashboard">
+    <meta property="og:description" content="How I turned Google Calendar data into a self-optimising habit dashboard.">
+
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/article.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- TODO: google tag? -->
+</head>
+
+<body id="article-page">
+    <div class="site-header">
+        <header class="site-logo">
+            <a href="/">Sarlin Tejada</a>
+        </header>
+        <nav class="nav-menu" role="navigation">
+            <button class="menu-toggle" aria-label="Toggle contact menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="menu-dropdown" id="contactMenu">
+                <a href="mailto:sarlin.tejada@gmail.com"><i class="fas fa-envelope"></i> Email Me</a>
+                <a href="https://www.linkedin.com/in/sarlin-tejada" target="_blank"><i class="fab fa-linkedin"></i> Connect</a>
+            </div>
+        </nav>
+    </div>
+    <main class="page-wrapper with-sidebar">    
+         <!-- Sticky Sidebar -->
+        <button id="tocToggle" aria-label="Table of contents" class="toc-toggle">
+            <i class="fas fa-list-ul"></i> What We'll Cover
+        </button>
+        <nav class="toc" aria-label="Table of Contents">
+            <h2 class="question">What We'll Cover?</h2>
+            <h3><a href="#project-overview">PROJECT OVERVIEW</a></h3>
+            <ul>
+                <li><a href="#the-journey"> 🌄 The Journey</a></li>
+                <li><a href="#the-problem">😣 THE PROBLEM: Manual Reflection Wasn't Sustainable </a></li>
+                <li><a href="#the-solution">😌 THE SOLUTION: Data Insights using Habit Tracking</a></li>
+                <li><a href="#project-roadmap">🧭 PROJECT ROADMAP: Ongoing Progress</a></li>
+            </ul>
+
+            <h3><a href="#from-data-to-visualization">FROM DATA TO VISUALIZATION</a></h3>
+            <ul>
+                <li>
+                    <a href="#behind-the-build">🛠 Behind the Build</a>
+                    <ul>
+                        <li><a href="#tech-stack">💻 Tech Stack</a></li>
+                        <li><a href="#project-structure">🗂️ Project Structure</a></li>
+                        <li><a href="#design-principles">🧩 Design Principles</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#etl-pipeline-in-action">⚙️ ETL Pipeline in Action</a>
+                    <ul>
+                        <li><a href="#extract">Extract</a></li>
+                        <li><a href="#transform">Transform</a></li>
+                        <li><a href="#load">Load</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#making-sense-of-the-patterns">😵‍💫 Making Sense of the Patterns</a>
+                    <ul>
+                        <li><a href="#weekly-analysis-what-happened">Weekly Analysis – What Happened?</a></li>
+                        <li><a href="#behavioral-insights-why-did-it-happen">Behavioral Insights – Why Did It Happen?</a></li>
+                    </ul>
+                </li>
+                <li><a href="#tell-the-story-visually">🤩 Tell the Story Visually</a></li>
+                <li><a href="#what-ive-learned-so-far">What I've Learned So Far 💭</a></li>
+            </ul>
+        </nav> 
+        <!-- Main Article Content -->
+        <article class="article-body">
+            <header>
+                <h1>📈 From Routine to Insight: Turning Calendar Data into a Habit Tracking Dashboard</h1>
+                <p class="article-subtitle">
+                    A personal analytics pipeline that turns calendar data into weekly habit insights and
+                    behavior patterns — helping align time with values, goals, and long-term growth.
+                </p>
+                <p id="version">
+                    July 8, 2025 | 6 min read
+                </p>
+                <div id="connect">
+                    <p class="connect-message">
+                        📩 <strong>Let's Connect!</strong>
+                        <br/><br/>
+                        I'm always open to conversations about behavior, systems, and storytelling.
+                        Whether you're exploring your own patterns, building something similar, or just enjoy geeking
+                        out about data analytics — feel free to reach out (<a href="mailto:sarlin.tejada@gmail.com">sarlin.tejada@gmail.com</a>) or 
+                        connect with me in <a href="https://www.linkedin.com/in/sarlin-tejada" target="_blank">LinkedIn</a>. 
+                        <br/><br/>
+                        <em><strong>Stay tuned for updates — <a href="#project-roadmap">more coming soon</a>.</strong></em>
+                    </p>
+                </div>
+                <figure>
+                    <img src="/assets/article/habit-tracking-project/charting-goals-and-progress.jpg" 
+                        alt="Notebook with hand-written goals and progress chart" />
+                    <figcaption>
+                        Charting Goals and Progress | 
+                        Photo by <a href="https://unsplash.com/@isaacmsmith?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash" target="_blank" rel="noopener noreferrer">Isaac Smith</a> on 
+                        <a href="https://unsplash.com/photos/pen-on-paper-6EnTPvPPL6I?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash" target="_blank" rel="noopener noreferrer">Unsplash</a>
+                    </figcaption>
+                </figure>
+            </header>
+
+            <section id="project-overview">
+                <h2>PROJECT OVERVIEW</h2>
+                <p class="overview-intro">
+                    I've spent countless hours every week decoding my calendar, just to figure out where the time went. So I built a habit tracking 
+                    pipeline that turns those data blocks into instant metrics—completion rates, blocker trends, and a score illustrating alignment 
+                    with my goals and values.
+                </p>
+                <p>
+                    In this post, I will be sharing the build (<strong>Google Calendar → MongoDB → MySQL</strong>), the dashboards (<strong>Tableau</strong>) 
+                    it powers, and the lessons I've learned while turning daily life-logs into automated actionable feedback.
+                </p>
+
+                <section id="the-journey">
+                    <h3>🌄 The Journey</h3>
+                    <p class="quote">
+                        Life is a series of hills and valleys — and if left to its own devices, those patterns can derail
+                         our path.
+                    </p>
+                    <p>
+                        Over the years, I've become more focused on designing ways to understand and improve my behavior 
+                        through life experiences and daily habits.
+                    </p>
+                    <p>
+                        This led me to a personal necessity to plan, track, and reflect on how my time was spent by using my 
+                        Google Calendar to structure my day to day life with an agile methodology in mind — planning each month 
+                        with a core problem to solve, each week with a focused theme, and each day around intentional tasks
+                         and supportive rituals.
+                    </p>
+                </section>
+
+                <section id="the-problem">
+                    <h3>😣 THE PROBLEM: Manual Reflection Wasn't Sustainable </h3>
+                    <p>
+                        Weekly check-ins became labor-intensive and inconsistent. I also couldn't shake the feeling that 
+                        my calendar could serve as a data source for habit insights on behavioral patterns and make 
+                        data-driven decisions.
+                    </p>
+                    <figure>
+                        <img class="center" src="/assets/article/habit-tracking-project/weekly-calendar-snapshot-dummy-data.png"
+                             loading="lazy"
+                             alt="Week-view calendar snapshot with dummy focus blocks and rituals"/>
+                        <figcaption> Weekly Calendar Snapshot (dummy data) | Illustration by Sarlin Tejada</figcaption>
+                    </figure>
+                    <p>
+                        My calendar already tracks everything: daily focus blocks, rituals, habit markers, and tasks 
+                        organized by weekly themes and monthly goals. Also, a weekly check-in involving a multi-step 
+                        audit that looks like the following:
+                    </p>
+                    <ul>
+                        <li>Skimming through each day to track what I actually completed</li>
+                        <li>Comparing planned activities vs. missed ones</li>
+                        <li>Reflecting on what blocked me, or where I lost focus</li>
+                        <li>Trying to extract insights that could shape next week's focus and monthly goal alignment</li>
+                    </ul>
+                    <p>
+                        But my system only worked when life was stable. If I missed a week or two, the backlog would 
+                        grow, and I'd lose visibility into behavioral patterns. I needed a repeatable way to:
+                    </p>
+                    <ul>
+                        <li>Extract structured, accurate data from my calendar</li>
+                        <li>Automate habit tracking and completion metrics</li>
+                        <li>Identify patterns and blockers with minimal effort</li>
+                        <li>Support planning with evidence, not memory or visual observation</li>
+                    </ul>
+                </section>
+
+                <section id="the-solution">
+                    <h3>😌 THE SOLUTION: Data Insights using Habit Tracking Dashboard</h3>
+                    <p>
+                        I built an <strong>ETL pipeline</strong> using <strong>Python</strong>, <strong>Google Calendar API</strong>, <strong>MongoDB</strong>, 
+                        and <strong>MySQL</strong> to support habit tracking, weekly reflection, and long-term analysis in <strong>Tableau</strong>.
+                    </p>
+                    <figure>
+                        <img class="center" src="/assets/article/habit-tracking-project/high-level-data-flow-diagram-concept.png"
+                             loading="lazy"
+                             alt="High-level data-flow diagram from Google Calendar to MySQL"/>
+                        <figcaption> High-Level Data-Flow Diagram (concept) | Generated with ChatGPT / DALL·E</figcaption>
+                    </figure>
+                    <p>
+                        The data flows end-to-end as follows: 
+                    </p>
+                    <p style="text-align: center;">
+                         <strong>Extract → Stage → Transform → Load → Analyze/Visualize</strong>
+                    </p>
+                    <ol>
+                        <li>Authenticate and connect to the <strong>Google Calendar API</strong></li>
+                        <li><strong>Extract</strong> calendar events by name and within a defined timeframe</li>
+                        <li><strong>Stage</strong> raw data in <strong>MongoDB</strong> for inspection and data preparation</li>
+                        <li><strong>Transform</strong> events into clean structured activity records</li>
+                        <li><strong>Load</strong>  activity records into MySQL for querying and analysis</li>
+                        <li>
+                            <strong>Analyze</strong> or <strong>visualize</strong> data using <strong>Python</strong>, 
+                            <strong>SQL</strong>, and <strong>Tableau</strong>
+                        </li>
+                    </ol>
+                    <p>
+                        I wanted to turn my weekly rituals into something more scalable and data-driven — a data
+                        pipeline that could transform routine into repeatable insight.
+                    </p>
+                </section>
+
+                <section id="project-roadmap">
+                    <h3>🧭 PROJECT ROADMAP: Ongoing Progress</h3>
+                    <p>
+                        Below outlines how the Habit Tracking Dashboard project has progressed and where it's headed.
+                    </p>
+                    <figure>
+                        <img class="center" src="/assets/article/habit-tracking-project/project-roadmap-phases-milestones-current-snapshot.png" 
+                             loading="lazy"
+                             alt="Table of project phases and milestones with progress"/>
+                        <figcaption>Project Roadmap: Phases & Milestones (current snapshot) | Illustration by Sarlin Tejada</figcaption>
+                    </figure>
+                </section>
+            </section>
+
+            <section id="from-data-to-visualization">
+                <h2>FROM DATA TO VISUALIZATION</h2>
+                <p>
+                    Turning behavior into insight takes more than <strong>collecting data</strong> — it requires designing systems that
+                    can <strong>clean</strong>, <strong>organize</strong>, <strong>analyze</strong>, and <strong>visualize</strong> 
+                    everyday patterns in meaningful ways.
+                </p>
+
+                <section id="behind-the-build">
+                    <h3>🛠 Behind the Build</h3>
+                    <p>
+                        The <strong>ETL pipeline</strong> is organized into modular components to follow a clear separation of concerns 
+                        so that the system is easier to maintain, scale, and reason with. This separation gives me flexibility during development, 
+                        while MySQL serves as the clean, structured destination for analysis and future data visualization.
+                    </p>
+                    <section id="tech-stack">
+                        <h4>💻 Tech Stack</h4>
+                        <ul>
+                            <li>
+                                <strong>Google Calendar API</strong> 
+                                <br/>
+                                <em>Primary source of habit and task data, extracted as event records</em>
+                            </li>
+                            <li>
+                                <strong>Python</strong> 
+                                <br/>
+                                <em>Core language used to build the ETL pipeline</em>
+                            </li>
+                            <li>
+                                <strong>MongoDB</strong> 
+                                <br/>
+                                <em>Non-relational (NoSQL) database for staging raw data to support inspection and data preparation</em>
+                            </li>
+                            <li>
+                                <strong>MySQL</strong> 
+                                <br/>
+                                <em>Relational (SQL) database for cleaned and transformed records</em>
+                            </li>
+                            <li>
+                                <strong>Hydra</strong> 
+                                <br/>
+                                <em>Configuration management for credentials and application settings</em>
+                            </li>
+                            <li>
+                                <strong>Custom Logging Context</strong> 
+                                <br/>
+                                <em>Logging for traceable pipeline runs and debugging</em>
+                            </li>
+                            <li>
+                                <strong>Tableau</strong> 
+                                <br/>
+                                <em>Visualization for dashboards</em>
+                            </li>
+                        </ul>
+                    </section>
+                    <section id="project-structure">
+                        <h4>🗂️ Project Structure</h4>
+                        <figure>
+                            <img class="center" src="/assets/article/habit-tracking-project/project-structure.png" 
+                                 loading="lazy"/>
+                            <figcaption>Illustration by Sarlin Tejada</figcaption>
+                        </figure>
+                    </section>
+                    <section id="design-principles">
+                        <h4>🧩 Design Principles</h4>
+                        <p>
+                            From the beginning, this project followed an <strong>agile</strong>, <strong>exploratory approach</strong>. I knew I wanted to
+                            analyze habit consistency and behavioural patterns, but I didn't want to over-engineer a solution before the end goal was fully clear.
+                        </p>
+                        <p>
+                            To avoid that trap, I designed the pipeline around three principles:
+                        </p>
+                        <ul>
+                            <li>
+                                <strong>Staging before structuring</strong> – Raw data is first stored in MongoDB to allow inspection, flexibility,
+                                and iteration before enforcing structure
+                            </li>
+                            <li>
+                                <strong>Modularity and maintainability</strong> – Each part of the data flow (extraction, transformation, loading) lives in its own service or 
+                                repository, making it easier to update or test in isolation
+                            </li>
+                            <li>
+                                <strong>Scalability</strong> – Support future pipelines, data sources, and data analysis/visualization
+                            </li>
+                        </ul>
+                    </section>
+                </section>
+
+                <section id="etl-pipeline-in-action">
+                    <h3>⚙️ ETL Pipeline in Action</h3>
+                    <p>
+                        The system is programmatically executed through the following service calls:
+                    </p>
+                    <ol>
+                        <li>
+                            <p id="extract">
+                                <strong>Extract</strong> calendar data using Google Calendar API and store the full JSON payload in 
+                                MongoDB <span class="code-reference">extracted</span> collection using the <span class="code-reference">StagingRepository</span>
+                            </p>
+                            <figure>
+                                 <img class="center" src="/assets/article/habit-tracking-project/extract-service-call.png" 
+                                      loading="lazy"/>
+                                 <figcaption>
+                                    Illustration by Sarlin Tejada
+                                 </figcaption>
+                            </figure>
+                        </li>
+                        <li>
+                            <p id="transform">
+                                <strong>Transform</strong> calendar events into <span class="code-reference">Activity</span> objects 
+                                and save them in MongoDB <span class="code-reference">transformed</span> collection for downstream loading using 
+                                <span class="code-reference">StagingRepository</span>
+                            </p>
+                           <figure>
+                                 <img class="center" src="/assets/article/habit-tracking-project/transform-service-call.png" 
+                                      loading="lazy"/>
+                                 <figcaption>
+                                    Illustration by Sarlin Tejada
+                                 </figcaption>
+                            </figure>
+                        </li>
+                        <li>
+                            <p id="load">
+                                <strong>Load</strong> transformed <span class="code-reference">Activity</span> records from MongoDB 
+                                <span class="code-reference">staging</span> collection into MySQL tables using the <span class="code-reference">TargetRepository</span> 
+                                to support downstream querying and visualization
+                            </p>
+                            <figure>
+                                 <img class="center" src="/assets/article/habit-tracking-project/load-service-call.png"
+                                      loading="lazy"/>
+                                 <figcaption>
+                                    Illustration by Sarlin Tejada
+                                 </figcaption>
+                            </figure>
+                        </li>
+                    </ol>
+                </section>
+
+                <section id="making-sense-of-the-patterns">
+                    <h3>Making Sense of the Patterns 😵‍💫</h3>
+                    <p>
+                        Once the calendar data is transformed and stored in MySQL, it serves as the foundation for weekly analysis, 
+                        and long-term behavior insights in order to surface trends, track consistency, and uncover blockers — all in 
+                        service of aligning how time is spent with what matters most.
+                    </p>
+                    <section id="weekly-analysis-what-happened">
+                        <h4 class="question">📊 Weekly Analysis – What Happened?</h4>
+                        <p>
+                            This analysis is guided by a descriptive analysis approach that highlights what actually
+                            happened over the week by tracking weekly completion rates, identifying blockers, and enabling time distribution visualization
+                            by addressing key questions like the following:
+                        </p>
+                        <ul>
+                            <li>What went well? What didn't? Planned vs. Completed Activities</li>
+                            <li>How time was distributed across key activity types (e.g., Self Care, Focus Block, Learn & Grow)?</li>
+                            <li>Which activities were skipped, blocked, or repeated?</li>
+                        </ul>
+                    </section>
+                    <section id="behavioral-insights-why-did-it-happen">
+                        <h4 class="question">📈 Behavioral Insights – Why Did It Happen?</h4>
+                        <p>
+                            This analysis is guided by a diagnostic analysis approach that supports value alignment,
+                            energy optimization, and proactive planning in the weekly plan ahead ritual. It helps 
+                            translate data into better decisions for the upcoming week by focusing on uncovering 
+                            patterns related to the following:
+                        </p>
+                        <ul>
+                            <li>What habits showed consistency or fluctuation?</li>
+                            <li>Are there recurring friction points or blockers that need attention?</li>
+                            <li>Are certain habits more successful at specific times of day or week?</li>
+                            <li>Is there a growing gap between stated values and actual behavior?</li>
+                            <li>Where can time be reallocated for greater alignment or effectiveness?</li>
+                        </ul>
+                        <p>
+                            By surfacing long-term behavioral patterns, this step helps ensure each week is informed by
+                            the previous one — evolving over time with purpose and clarity.
+                        </p>
+                    </section>
+                </section>
+
+                <section id="tell-the-story-visually">
+                    <h3>Tell the Story Visually 🤩</h3>
+                    <p>
+                        Together, these approaches transform data into meaningful feedback that frames data insights for
+                        visualization in the form of operational and strategic <strong>Tableau</strong> dashboards that inform 
+                        and tell a story related to the following:
+                    </p>
+                    <ul>
+                        <li><strong>Weekly completion rates</strong> by habit category and status</li>
+                        <li><strong>Time distribution</strong> across time of day and activity types</li>
+                        <li><strong>Blocker trends</strong> showing recurring sources of friction</li>
+                        <li><strong>Alignment scores</strong> comparing time spent with personal goals and values</li>
+                    </ul>
+                    <figure>
+                        <img class="center" src="/assets/article/habit-tracking-project/dashboard-wireframe-concept.png" 
+                             loading="lazy"
+                             alt="Dashboard wire-frame concept showing KPIs, line chart, donut, heatmap"/>
+                        <figcaption>
+                            Dashboard Wire-frame (concept) | Generated with ChatGPT / DALL·E
+                        </figcaption>
+                    </figure>
+                </section>
+
+                <section id="what-ive-learned-so-far">
+                    <p style="text-align: center;"><br/>• • •</p>
+                    <h3>What I've Learned So Far 💭</h3>
+                    <p>
+                        While the data analysis and visualization layers aren't complete yet, the system is already
+                        surfacing meaningful cues. 
+                    </p>
+                    <p>
+                        I've started noticing patterns in focus breakdowns, identified routines that tend to slip, and noticed
+                        how certain activities cause a consistent fall-off in rhythm. These early signals are already 
+                        helping me adjust with more awareness — and once the dashboards are in place, I expect the insights 
+                        to run even deeper.
+                    </p>
+                </section>                
+            </section>
+        </article>
+    </main>
+    <footer class="site-footer">
+        <h3 class="question">Need a data analyst?</h3>
+        <br/>
+        <p>
+            I'm actively seeking remote analyst roles.
+            <br/><br/>
+            <i class="fas fa-envelope" aria-hidden="true"></i> Email me 
+            (<a href="mailto:sarlin.tejada@gmail.com">sarlin.tejada@gmail.com</a>) or
+             connect with me in <i class="fab fa-linkedin" aria-hidden="true"></i> 
+             <a href="https://www.linkedin.com/in/sarlin-tejada" target="_blank" rel="noopener noreferrer me">
+            LinkedIn</a>
+        </p>
+    </footer>
+
+    <script src="../../js/scripts.js"></script>
+    <script src="../../js/toc.js"></script>
+</body>
+
+</html>

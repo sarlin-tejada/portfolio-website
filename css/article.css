@@ -1,0 +1,102 @@
+/*
+  -----------------------------------------------------------------------------
+  This file is part of a personal project by Sarlin Tejada, shared for portfolio purposes only.
+  All rights reserved. This code is provided for view-only access.
+
+  Do not copy, modify, reuse, or distribute without prior written permission.
+  For license details, see the LICENSE file in the root of this repository.
+  -----------------------------------------------------------------------------
+*/
+.page-wrapper.with-sidebar {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 4rem 2.5rem;
+  gap: 3rem;
+  text-align: left;
+
+}
+
+article [id] {
+  scroll-margin-top: calc(var(--header-height) + 15px);
+}
+
+.article-body {
+    flex: 1;
+    max-width: 750px;
+    width: 100%;
+}
+
+.article-body h1, h2 {
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+}
+
+.article-body header h1 {
+    color: var(--primary-color)
+}
+
+.article-body header .article-subtitle {
+    font-size: 0.89rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.article-body header #version {
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    border-top: 1px solid var(--divider);
+    padding-top: 1rem;
+}
+
+.article-body header #connect {
+    margin: 0.75rem 0;
+    padding: 0.75rem 0;
+    border-top: 1px solid var(--divider);
+    border-bottom: 1px solid var(--divider);
+}
+.article-body header #connect p {
+    font-size: 0.8rem;
+}
+
+.article-body section h2 {
+    margin-top: 2.5rem;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0.25rem;
+    
+}
+
+.article-body section section h3,
+.article-body section section section h4 {
+    font-size: 0.89rem;
+    margin-top: 2rem;
+}
+
+.article-body section section .question {
+    font-weight: 600;
+}
+
+.article-body section section section {
+    margin-left: 1.2rem;
+}
+
+.article-body section p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+.article-body section section#etl-pipeline-in-action ol li {
+    margin-bottom: 2.3rem;
+}
+
+.article-body section span.code-reference {
+    font-family:'Courier New', Courier, monospace;
+}
+
+/* ==========================================
+   RESPONSIVE STYLES
+========================================== */

@@ -7,52 +7,93 @@
   For license details, see the LICENSE file in the root of this repository.
   -----------------------------------------------------------------------------
 -->
-  
+
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Coming Soon | Sarlin Tejada</title>
-      <meta name="description" content="Portfolio of Sarlin Tejada – data analyst with a passion for storytelling, real-world insights, and curiosity-driven analysis.">
-      <meta property="og:title" content="Sarlin Tejada | Data Analyst Portfolio">
-      <meta property="og:description" content="Explore projects, data stories, and career insights from Sarlin Tejada, a data analyst driven by curiosity and grounded in purpose.">
-      
-      <link rel="stylesheet" href="../css/styles.css">
-      <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400&family=Montserrat:wght@500&display=swap" rel="stylesheet">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-      
-      <!-- Google tag (gtag.js) -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-0LKMP10F2S"></script>
-      <script>
-         window.dataLayer = window.dataLayer || [];
-         function gtag(){dataLayer.push(arguments);}
-         gtag('js', new Date());
-         
-         gtag('config', 'G-0LKMP10F2S');
-      </script>
-   </head>
-   <body>
-      <nav class="menu-wrapper" role="navigation">
-         <button class="menu-toggle" aria-label="Toggle contact menu">
-             <i class="fas fa-bars"></i>
-         </button>
-         <div class="menu-dropdown" id="contactMenu">
-             <a href="/about"><i class="fas fa-user"></i> About</a>
-             <a href="mailto:sarlin.tejada@gmail.com"><i class="fas fa-envelope"></i> Email Me</a>
-             <a href="https://www.linkedin.com/in/sarlin-tejada" target="_blank"><i class="fab fa-linkedin"></i> Connect</a>
-         </div>
-     </nav>
-     <div class="center-wrapper">
-         <main>
-            <div class="portfolio">PORTFOLIO</div>
-            <div class="hero-title">
-               COMING <br> SOON
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sarlin Tejada | Data Analyst </title>
+    <meta name="description" content="Portfolio of Sarlin Tejada – data analyst with a passion for storytelling, real-world insights, and curiosity-driven analysis.">
+    <meta property="og:title" content="Sarlin Tejada | Data Analyst Portfolio">
+    <meta property="og:description" content="Explore projects, data stories, and career insights from Sarlin Tejada, a data analyst driven by curiosity and grounded in purpose.">
+
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0LKMP10F2S"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-0LKMP10F2S');
+    </script>
+</head>
+
+<body id="home-page">
+    <div class="site-header">
+        <header class="site-logo">
+            <a href="/">Sarlin Tejada</a>
+        </header>
+        <nav class="nav-menu" role="navigation">
+            <button class="menu-toggle" aria-label="Toggle contact menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="menu-dropdown" id="contactMenu">
+                <a href="mailto:sarlin.tejada@gmail.com"><i class="fas fa-envelope"></i> Email Me</a>
+                <a href="https://www.linkedin.com/in/sarlin-tejada" target="_blank"><i class="fab fa-linkedin"></i> Connect</a>
             </div>
-            <div class="subtitle">SARLIN TEJADA | DATA ANALYST</div>
-         </main>
-     </div>
-      
-      <script src="../js/scripts.js"></script>
-   </body>
+        </nav>
+    </div>
+    <main class="page-wrapper">
+        <h1>Exploring Life Through Data</h1>
+        <hr class="divider-subtle" />
+        <div class="about-message">
+            <img src="/assets/professional-headshot.jpg" alt="Sarlin Tejada" class="about-photo" />
+            I've been on a journey that's taken me through software engineering, real estate, and deep personal
+            transformation—and through it all, one constant
+            has remained: a persistent pull toward understanding patterns. Whether in behavior, business, or life, I've
+            always wanted to know the “why” behind what we
+            do, when we do it, and how we can do it better.
+            <br /><br />
+            Data has become my language for that exploration. It's how I make sense of the past, stay grounded in the
+            present, and design what comes next—with clarity,
+            curiosity, and purpose. This space is where I share that work, one insight at a time.
+        </div>
+        <h2>Projects</h2>
+        <hr class="divider-subtle" />
+        <a class="article-preview" href="/article/habit-tracking-project/">
+            <h3 class="preview-title">📈 From Routine to Insight: Turning Calendar Data into a Habit Tracking Dashboard
+            </h3>
+            <p class="preview-summary">
+                A personal analytics pipeline that turns calendar data into weekly habit insights and
+                behavior patterns — helping align time with values, goals, and long-term growth.
+            </p>
+            <p class="preview-meta">
+                SQL • Python • Tableau • ETL Pipeline  
+            </p>
+        </a>
+    </main>
+    <footer class="site-footer">
+        <h3 class="question">Need a data analyst?</h3>
+        <br/>
+        <p>
+            I'm actively seeking remote analyst roles.
+            <br/><br/>
+            <i class="fas fa-envelope" aria-hidden="true"></i> Email me 
+            (<a href="mailto:sarlin.tejada@gmail.com">sarlin.tejada@gmail.com</a>) or
+             connect with me in <i class="fab fa-linkedin" aria-hidden="true"></i> 
+             <a href="https://www.linkedin.com/in/sarlin-tejada" target="_blank" rel="noopener noreferrer me">
+            LinkedIn</a>
+        </p>
+    </footer>
+
+    <script src="../js/scripts.js"></script>
+</body>
+
 </html>
