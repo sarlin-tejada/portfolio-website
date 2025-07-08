@@ -12,7 +12,6 @@
    HOME PAGE SECTIONS
 ========================================== */
 .about-message, .article-preview {
-	margin-top: 0;
 	max-width: 665px;
 	color: var(--primary-color);
 	font-size: 1em;
@@ -32,19 +31,20 @@
 }
 
 .article-preview {
-  display: block;                 
-  padding: 20px;                 
-  color: inherit;                 
-  text-decoration: none;          
-  border-radius: 0;               
-  background: transparent;       
-  box-shadow: none;               
-  transition:
+	margin: 0;
+  	display: block;                 
+  	padding: 20px;                 
+  	color: inherit;                 
+  	text-decoration: none;          
+  	border-radius: 0;               
+  	background: transparent;       
+  	box-shadow: none;               
+  	transition:
       box-shadow .18s ease,
       background-color .18s ease,
       transform .18s ease,
       border-radius .18s ease;
-  cursor: pointer;
+  	cursor: pointer;
 }
 
 .article-preview:hover,
