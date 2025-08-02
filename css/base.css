@@ -83,14 +83,14 @@ img.center {
   margin: 0 auto;
   min-height: calc(100vh - 120px); 
   text-align: center;
-  padding: 4rem 2rem; 
+  padding: 2rem; 
   padding-top: calc(var(--header-height) + 20px);
   
 }
 
 .site-footer{
   border-top:1px solid var(--divider);
-  padding: 2rem 1rem 1.5rem;
+  padding: 1rem;
   text-align: center;
   font-size: 0.95rem;
   max-width: 960px;      
