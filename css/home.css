@@ -71,6 +71,16 @@
 	margin-top: 0.5rem; 
 	border-top: 1px solid var(--divider);
 	padding-top: 1rem;
+	position: relative;
+}
+
+.article-preview .preview-meta .read-more {
+	font-size: 0.65rem; 	 
+	font-weight: 500;
+  	margin-top: 0.5rem;
+	position: absolute;
+  	right: 0;
+  	top: 0;
 }
 
 /* ==========================================
