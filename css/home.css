@@ -67,10 +67,10 @@
 
 .article-preview .preview-meta {
 	display: block; 
-	font-size: 0.8rem; 
+	font-size: 0.7rem; 
 	margin-top: 0.5rem; 
 	border-top: 1px solid var(--divider);
-	padding-top: 1rem;
+	padding-top: 0.45rem;
 	position: relative;
 }
 
