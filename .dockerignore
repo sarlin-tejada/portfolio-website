@@ -1,0 +1,12 @@
+*.md
+
+# Git
+.git
+.gitignore
+
+# Docker
+.dockerignore
+Dockerfile
+
+# VS Code settings
+.vscode/
