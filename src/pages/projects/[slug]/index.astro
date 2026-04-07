@@ -1,7 +1,6 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import { render, getCollection, type CollectionEntry } from 'astro:content';
-import Breadcrumbs from '@/components/Breadcrumbs.svelte';
 import SocialShare from '@/components/SocialShare.svelte';
 import { getBreadcrumbSchema } from '@/lib/schemas';
 
@@ -28,12 +27,6 @@ const schema = getBreadcrumbSchema([
 ---
 
 <Layout title={project.data.title} description={project.data.description} schema={schema}>
-  <Breadcrumbs
-    items={[
-      { name: 'Projects', href: '/projects' },
-      { name: project.data.title, href: '#' },
-    ]}
-  />
 
   <div class="max-w-4xl mx-auto">
     <!-- Main Content -->
