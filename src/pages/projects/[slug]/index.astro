@@ -1,7 +1,6 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import { render, getCollection, type CollectionEntry } from 'astro:content';
-import SocialShare from '@/components/SocialShare.svelte';
 import { getBreadcrumbSchema } from '@/lib/schemas';
 
 export async function getStaticPaths() {
@@ -117,7 +116,6 @@ const schema = getBreadcrumbSchema([
         <Content />
       </article>
 
-      <SocialShare client:load title={project.data.title} urlPath={Astro.url.pathname} />
     </div>
   </div>
 </Layout>
