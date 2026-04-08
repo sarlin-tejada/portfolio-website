@@ -51,13 +51,13 @@ export interface SiteConfig {
 }
 
 export const SITE: SiteConfig = {
-  author: 'Astronaut',
-  desc: 'Developer and designer building premium web experiences.',
-  title: 'Spaceship',
-  ogImage: 'og.png',
+  author: 'Sarlin Tejada',
+  desc: 'Data analyst connecting data, behavior, and systems to impact',
+  title: 'Sarlin Tejada',
+  ogImage: '',
   lang: 'en-US',
   base: '/',
-  website: 'https://spaceship-one.vercel.app',
+  website: 'https://www.sarlintejada.com/',
   social: {
     linkedin: 'https://www.linkedin.com/in/sarlin-tejada/'
   },
