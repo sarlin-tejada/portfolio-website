@@ -4,6 +4,7 @@ description: 'An analysis of multi-campaign marketing data exploring customer en
 link: 'https://www.linkedin.com/pulse/whos-clicking-yes-unpacking-marketing-campaigns-case-study-tejada-aow4e/'
 tags: ['excel', 'data analysis']
 order: 2
+directLink: true
 ---
 ## The Problem
 After running multiple campaigns, it’s not always clear which ones are actually effective or how customer behavior changes over time. I wanted to understand how engagement builds across campaigns and what drives customers to respond.

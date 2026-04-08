@@ -4,6 +4,7 @@ description: 'An analysis of Massachusetts public school data exploring graduati
 link: 'https://public.tableau.com/app/profile/sarlin.tejada/viz/TheEducationProject-Presentation/MassachesettsEducationOverview'
 tags: ['excel', 'tableau', 'data analysis']
 order: 3
+directLink: true
 ---
 ## The Problem
 School performance is often discussed at a high level, but outcomes can vary significantly across schools and districts. I wanted to explore where those differences exist and what factors may be contributing to them.
