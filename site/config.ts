@@ -62,10 +62,9 @@ export const SITE: SiteConfig = {
     linkedin: 'https://www.linkedin.com/in/sarlin-tejada/'
   },
   googleAnalyticsId: '', // Example: 'G-XXXXXXXXXX'
-  homeHeroDescription:
-    'Building premium web experiences with Astro, Svelte, and Tailwind. Focused on performance, aesthetics, and clean code. I am currently working on open-source tools and sharing my journey through writing.',
-  blogDescription: 'A collection of thoughts, tutorials, and general web discovery.',
-  projectsDescription: 'Things I’ve built that I’m proud of. Many of them are open-source.',
+  homeHeroDescription: '',
+  blogDescription: '',
+  projectsDescription: 'Projects focused on understanding patterns, exploring data, and figuring out what’s actually driving outcomes.',
 
   // Homepage post counts
   featuredPostsCount: 3,
