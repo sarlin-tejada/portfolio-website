@@ -1,9 +1,15 @@
 ---
-title: "I'm Astronaut, a software designer and entrepreneur."
+title: "I'm a data analyst with a background in software engineering"
 ---
 
-I've been obsessed with computers since I was a kid, though I didn't start coding until I was in my late teens. I'm a self-taught developer who loves the intersection of design and technology.
+> Looking back, my heart was always in data
 
-Currently, I'm building **Spaceship**, a modern blog template that combines the power of Astro 5, Svelte 5, and Tailwind 4. This project is my attempt at creating a perfect balance between performance and developer experience.
+As a software engineer, my favorite day-to-day activities involved **playing detective and digging deep into data** by performing exploratory analysis, cleaning, and figuring out what was actually going on.
 
-Beyond work, I'm an avid reader, amateur astronomer, and coffee enthusiast. I believe that the best products are built at the intersection of curiosity and craftsmanship.
+In real estate, I found myself more interested in conversion rates, market trends, and behavioral patterns than the transactions themselves. That's when it finally clicked.
+
+Since then, I’ve focused on **building data projects using real data**, including:
+- **Habit tracking** and behavioral analysis using personal data
+- **Marketing campaign** analysis focused on conversion and user behavior
+- **Education data** analysis exploring school performance and outcomes
+

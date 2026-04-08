@@ -59,10 +59,7 @@ export const SITE: SiteConfig = {
   base: '/',
   website: 'https://spaceship-one.vercel.app',
   social: {
-    x: 'https://x.com/astronaut',
-    github: 'https://github.com/astronaut',
-    telegram: 'https://t.me/astronaut',
-    facebook: 'https://facebook.com/astronaut',
+    linkedin: 'https://www.linkedin.com/in/sarlin-tejada/'
   },
   googleAnalyticsId: '', // Example: 'G-XXXXXXXXXX'
   homeHeroDescription:

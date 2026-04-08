@@ -8,7 +8,7 @@ const schema = getBreadcrumbSchema([
   { name: 'About', url: new URL('/about', Astro.site).toString() },
 ]);
 import { Image } from 'astro:assets';
-import profilePhoto from '@/site-assets/profile_photo.png';
+import profilePhoto from '@/site-assets/professional-headshot.jpg';
 
 // Social icons mapping
 const socialIcons = {
@@ -38,7 +38,7 @@ const aboutTitle =
 ---
 
 <Layout
-  title={`About | ${SITE.author}`}
+  title={`Data Analyst `}
   description={`Learn more about ${SITE.author}, a developer and designer focused on building premium web experiences.`}
   schema={schema}
 >
@@ -117,7 +117,7 @@ const aboutTitle =
     <!-- Right Content: Bio -->
     <div class="flex-1 min-w-0">
       <h1
-        class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-foreground leading-[1.1] mb-6"
+        class="text-3xl sm:text-4xl font-black tracking-tight text-foreground leading-[1.1] mb-6"
       >
         {aboutTitle}
       </h1>
