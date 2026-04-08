@@ -61,7 +61,7 @@ export const SITE: SiteConfig = {
   social: {
     linkedin: 'https://www.linkedin.com/in/sarlin-tejada/'
   },
-  googleAnalyticsId: '', // Example: 'G-XXXXXXXXXX'
+  googleAnalyticsId: 'G-0LKMP10F2S',
   homeHeroDescription: '',
   blogDescription: '',
   projectsDescription: 'Projects focused on understanding patterns, exploring data, and figuring out what’s actually driving outcomes.',
