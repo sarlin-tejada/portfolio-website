@@ -5,6 +5,7 @@ link: 'https://www.linkedin.com/pulse/whos-clicking-yes-unpacking-marketing-camp
 tags: ['excel', 'data analysis']
 order: 2
 directLink: true
+image: '/projects/who-clicking-yes.png'
 ---
 ## The Problem
 After running multiple campaigns, it’s not always clear which ones are actually effective or how customer behavior changes over time. I wanted to understand how engagement builds across campaigns and what drives customers to respond.

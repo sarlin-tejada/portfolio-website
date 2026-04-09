@@ -3,6 +3,7 @@ title: 'From Routine to Insight: Turning Calendar Data into a Habit Tracking Das
 description: 'A personal analytics pipeline that turns calendar data into weekly habit insights and behavior patterns — helping align time with values, goals, and long-term growth.'
 tags: ['python', 'mongodb', 'mysql', 'google calendar api', 'etl']
 order: 1
+image: '/projects/charting-goals-and-progress.jpg'
 ---
 ## The Problem
 Daily routines are easy to follow in the moment but difficult to evaluate over time. I wanted to understand how I was actually spending my time and whether it aligned with my intentions and priorities.
