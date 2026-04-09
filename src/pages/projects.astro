@@ -106,9 +106,9 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
                     ? `Visit ${project.data.title} project website`
                     : `View details for project ${project.data.title}`
                 }
-                class="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-primary transition-colors no-underline"
+                class="ml-auto inline-flex items-center gap-2 text-sm font-bold text-muted-foreground hover:text-foreground transition-colors no-underline"
               >
-                {isExternal ? 'View More' : 'View More'}
+                {isExternal ? 'View Project' : 'View Project'}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
