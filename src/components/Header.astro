@@ -16,11 +16,17 @@ const navLinks: NavLink[] = [
   class="sticky top-0 z-50 backdrop-blur-md bg-background/80 flex flex-col lg:flex-row items-center justify-between py-4 sm:py-5 gap-4 border-b border-border transition-all duration-300"
 >
   <div class="flex items-center justify-between w-full lg:w-auto">
-    <a
+  <a
       href="/"
-      class="text-xl sm:text-2xl font-black tracking-normal text-foreground transition-all no-underline hover:text-primary whitespace-nowrap"
+      class="flex items-center gap-1 text-xl sm:text-2xl font-black tracking-normal text-foreground transition-all no-underline hover:text-primary whitespace-nowrap"
     >
-      {SITE.title}
+      <img
+        src="/favicon.png"
+        alt=""
+        class="w-5 h-5"
+        aria-hidden="true"
+      />
+      <span>{SITE.title}</span>
     </a>
     <div class="flex items-center gap-2 lg:hidden">
       <ThemeToggle client:idle />
