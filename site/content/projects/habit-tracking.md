@@ -28,11 +28,13 @@ I needed a more reliable and scalable way to track habits, measure consistency, 
 
 ## The System
 To automate this process, I designed a data pipeline that transforms raw calendar events into structured data for analysis.
+![Habit Tracking Pipeline Architecture](images/habit-tracking-pipeline-architecture.png)
+
 - **Extract:** Event data is pulled from the Google Calendar API, capturing activity across tracked time blocks.
-- **Stage (MongoDB):** Raw calendar events are stored in MongoDB, allowing for flexible ingestion and initial data validation before applying transformation logic.
-- **Transform (Python):** The data is cleaned and converted into structured `Activity` records for analysis.
+- **Stage:** Raw calendar events are stored in MongoDB, allowing for flexible ingestion and initial data validation before applying transformation logic.
+- **Transform:** The data is cleaned and converted into structured `Activity` records for analysis.
     - Each `Activity` is structured with `category`, `summary`, `start`, `end`, and `status` fields, which represent a single unit of tracked behavior.
-- **Load & Analyze (MySQL + Tableau):** The transformed data is loaded into MySQL, where it is structured for querying, aggregation, and visualization in Tableau.
+- **Load & Analyze:** The transformed data is loaded into MySQL, where it is structured for querying, aggregation, and visualization in Tableau.
 
 This pipeline establishes a foundation for analyzing behavior over time, including tracking completion rates, comparing planned versus actual time allocation, and identifying recurring patterns across habits.
 
