@@ -33,13 +33,12 @@ function getSocialIcon(name: string): string {
 
 const aboutPost = await getEntry('about', 'index');
 const { Content } = aboutPost ? await render(aboutPost) : { Content: null };
-const aboutTitle =
-  aboutPost?.data.title || `I'm ${SITE.author}, a software designer and entrepreneur.`;
+const aboutTitle = `I'm a data analyst with a background in software engineering`; 
 ---
 
 <Layout
-  title={`Data Analyst `}
-  description={`Learn more about ${SITE.author}, a developer and designer focused on building premium web experiences.`}
+  title={`About `}   
+  description={`Learn more about ${SITE.author}'s data projects, analysis, and real-world problem solving.`}
   schema={schema}
 >
 
@@ -47,7 +46,7 @@ const aboutTitle =
     <!-- Left Sidebar: Profile + Social -->
     <aside class="flex-shrink-0 lg:w-64 space-y-6">
       <!-- Profile Photo -->
-      <div class="w-full aspect-square">
+      <div class="w-full max-w-sm mx-auto overflow-hidden rounded-2xl border-2 border-border shadow-xl lg:aspect-square lg:max-w-xs">
         <Image
           src={profilePhoto}
           alt={SITE.author}
@@ -55,12 +54,12 @@ const aboutTitle =
           height={400}
           widths={[200, 400, 800]}
           sizes="(max-width: 1024px) 100vw, 256px"
-          class="w-full h-full object-cover rounded-2xl border-2 border-border shadow-xl"
+          class="w-full h-auto object-cover lg:h-full"
         />
       </div>
 
       <!-- Connect Section -->
-      <div>
+      <div class="hidden lg:block">
         <h2 class="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-3">
           Connect
         </h2>
