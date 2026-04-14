@@ -41,6 +41,8 @@
   --color-secondary: #f4f4f5;
   --color-secondary-foreground: #18181b;
 
+  --color-blockquote: #d5d5d5;
+
   --color-muted: #f4f4f5;
   --color-muted-foreground: #18181b; /* Zinc 900 for absolute contrast compliance */
 
@@ -191,7 +193,7 @@
   --tw-prose-counters: var(--color-muted-foreground);
   --tw-prose-bullets: var(--color-border);
   --tw-prose-hr: var(--color-border);
-  --tw-prose-quotes: var(--color-foreground);
+  --tw-prose-quotes: var(--color-blockquote);
   --tw-prose-quote-borders: var(--color-border);
   --tw-prose-captions: var(--color-muted-foreground);
   --tw-prose-code: var(--color-foreground);
