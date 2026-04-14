@@ -42,11 +42,11 @@ const aboutTitle = `I'm a data analyst with a background in software engineering
   schema={schema}
 >
 
-  <div class="flex flex-col lg:flex-row gap-8">
+  <div class="flex flex-col gap-6">
     <!-- Left Sidebar: Profile + Social -->
-    <aside class="flex-shrink-0 lg:w-64 space-y-6">
+    <aside class="flex-shrink-0 sm:w-44 lg:w-64 space-y-6">
       <!-- Profile Photo -->
-      <div class="w-full max-w-sm mx-auto overflow-hidden rounded-2xl border-2 border-border shadow-xl lg:aspect-square lg:max-w-xs">
+      <div class="w-full max-w-[220px] mx-auto overflow-hidden rounded-2xl border-2 border-border shadow-xl lg:aspect-square lg:max-w-xs">
         <Image
           src={profilePhoto}
           alt={SITE.author}
@@ -116,7 +116,7 @@ const aboutTitle = `I'm a data analyst with a background in software engineering
     <!-- Right Content: Bio -->
     <div class="flex-1 min-w-0">
       <h1
-        class="text-3xl font-black tracking-tight text-foreground leading-[1.1] mb-6"
+        class="text-3xl font-black tracking-tight text-foreground leading-[1.1] mb-6 text-center lg:text-left"
       >
         {aboutTitle}
       </h1>
