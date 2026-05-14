@@ -25,6 +25,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export default defineConfig({
   site: SITE.website,
   publicDir: 'site/assets',
+  redirects: {
+    'article/habit-tracking-project/' : '/projects/habit-tracking/' 
+  },
   integrations: [
     svelte(),
     mdx(),
