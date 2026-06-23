@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Knowledge Assessment — Data Analytics with Anthony</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAF8F5;
+    --card: #FFFFFF;
+    --navy: #1F3864;
+    --navy-soft: #3C5A8A;
+    --sage: #7C9885;
+    --sage-light: #E7EFE8;
+    --text: #2B2B28;
+    --text-muted: #6B6B66;
+    --border: #E4E0D8;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 2.5rem 1.25rem 4rem;
+  }
+
+  .page {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  header {
+    margin-bottom: 1.5rem;
+  }
+
+  .eyebrow {
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--sage);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  h1 {
+    font-family: 'Archivo', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.01em;
+    margin-bottom: 0.4rem;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    color: var(--text-muted);
+  }
+
+  /* Scale key */
+  .scale-bar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 4px 12px -4px rgba(0, 0, 0, 0.08);
+    padding: 0.6rem 1.25rem;
+    margin: 0 -1.25rem 1.5rem;
+    width: calc(100% + 2.5rem);
+  }
+
+  .scale-bar-inner {
+    max-width: 680px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .scale-bar-label {
+    font-family: 'Archivo', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--navy);
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .scale-bar-item {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    font-size: 12px;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+
+  .scale-bar-num {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 600;
+    color: var(--sage);
+  }
+
+  /* Topic cards */
+  .topic {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .topic-name {
+    font-family: 'Archivo', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.2rem;
+  }
+
+  .topic-hint {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 0.9rem;
+  }
+
+  .rating-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+
+  .rating-options {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .rating-options input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .rating-options label {
+    flex: 1;
+    min-width: 60px;
+    text-align: center;
+    padding: 8px 6px;
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .rating-options label:hover {
+    border-color: var(--navy-soft);
+  }
+
+  .rating-options input[type="radio"]:checked + label {
+    background: var(--sage);
+    border-color: var(--sage);
+    color: #FFFFFF;
+  }
+
+  .notes-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 0.4rem;
+    display: block;
+  }
+
+  .notes-label .optional {
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+
+  textarea {
+    width: 100%;
+    min-height: 60px;
+    padding: 8px 10px;
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--text);
+    background: var(--bg);
+    resize: vertical;
+  }
+
+  textarea:focus {
+    outline: none;
+    border-color: var(--sage);
+  }
+
+  textarea::placeholder {
+    color: var(--text-muted);
+    opacity: 0.7;
+  }
+
+  /* Submit area */
+  .submit-row {
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+
+  button.submit-btn {
+    font-family: 'Archivo', sans-serif;
+    background: var(--sage);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 32px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.15s ease;
+  }
+
+  button.submit-btn:hover {
+    opacity: 0.9;
+  }
+
+  .status-msg {
+    margin-top: 0.75rem;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .status-msg.success {
+    color: var(--sage);
+    font-weight: 500;
+  }
+
+  .required-flag {
+    color: #B5524A;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .work-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+
+  .toggle-options {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 0.75rem;
+  }
+
+  .toggle-options input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .toggle-options label {
+    flex: 1;
+    text-align: center;
+    padding: 8px 6px;
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .toggle-options label:hover {
+    border-color: var(--navy-soft);
+  }
+
+  .toggle-options input[type="radio"]:checked + label {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: #FFFFFF;
+  }
+
+  .work-details {
+    display: none;
+    margin-bottom: 1rem;
+  }
+
+  .work-details.visible {
+    display: block;
+  }
+
+  @media print {
+    body { padding: 1rem; background: #fff; }
+    .scale-bar { position: static; box-shadow: none; margin-bottom: 1rem; }
+    .submit-row { display: none; }
+    .topic { break-inside: avoid; border: 1px solid #ccc; }
+    .rating-options label { border: 1px solid #ccc; }
+    .rating-options input[type="radio"]:checked + label {
+      background: #7C9885 !important;
+      color: #fff !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .toggle-options input[type="radio"]:checked + label {
+      background: #1F3864 !important;
+      color: #fff !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    textarea {
+      border: 1px solid #ccc;
+      min-height: 40px;
+    }
+    .work-details { display: block; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="eyebrow">Data analytics</div>
+    <h1>Knowledge Assessment</h1>
+    <p class="subtitle">Rate where you're at for each area, and add notes if anything comes to mind. No wrong answers — this just helps us figure out where to start.</p>
+  </header>
+</div>
+
+<div class="scale-bar">
+  <div class="scale-bar-inner">
+    <span class="scale-bar-label">Rating scale</span>
+    <span class="scale-bar-item"><span class="scale-bar-num">1</span> No exposure</span>
+    <span class="scale-bar-item"><span class="scale-bar-num">2</span> Seen, not used</span>
+    <span class="scale-bar-item"><span class="scale-bar-num">3</span> Rusty</span>
+    <span class="scale-bar-item"><span class="scale-bar-num">4</span> Comfortable</span>
+    <span class="scale-bar-item"><span class="scale-bar-num">5</span> Confident</span>
+  </div>
+</div>
+
+<div class="page">
+  <form id="assessmentForm">
+
+    <div class="topic">
+      <div class="topic-name">Excel / Google Sheets</div>
+      <div class="topic-hint">Formulas, pivot tables, lookups, basic data cleanup</div>
+      <div class="work-label">Have you done any work in this area? <span class="required-flag">(required)</span> <span class="optional">(projects, exercises, coursework, etc.)</span></div>
+      <div class="toggle-options">
+        <input type="radio" id="excel-work-yes" name="excel-work" value="yes" required><label for="excel-work-yes">Yes</label>
+        <input type="radio" id="excel-work-no" name="excel-work" value="no"><label for="excel-work-no">No</label>
+      </div>
+      <div class="work-details" id="excel-work-details">
+        <textarea id="excel-work-notes" name="excel-work-notes" placeholder="What did you work on? (e.g. a class project, a personal spreadsheet, a tutorial...)"></textarea>
+      </div>
+      <div class="rating-label">Rating <span class="required-flag">(required)</span></div>
+      <div class="rating-options">
+        <input type="radio" id="excel-1" name="excel" value="1" required><label for="excel-1">1</label>
+        <input type="radio" id="excel-2" name="excel" value="2"><label for="excel-2">2</label>
+        <input type="radio" id="excel-3" name="excel" value="3"><label for="excel-3">3</label>
+        <input type="radio" id="excel-4" name="excel" value="4"><label for="excel-4">4</label>
+        <input type="radio" id="excel-5" name="excel" value="5"><label for="excel-5">5</label>
+      </div>
+      <label class="notes-label" for="excel-notes">Notes <span class="optional">(optional)</span></label>
+      <textarea id="excel-notes" name="excel-notes" placeholder="Anything you remember doing, or want to mention..."></textarea>
+    </div>
+
+    <div class="topic">
+      <div class="topic-name">SQL</div>
+      <div class="topic-hint">SELECT, WHERE, GROUP BY, JOINs, writing queries</div>
+      <div class="work-label">Have you done any work in this area? <span class="required-flag">(required)</span> <span class="optional">(projects, exercises, coursework, etc.)</span></div>
+      <div class="toggle-options">
+        <input type="radio" id="sql-work-yes" name="sql-work" value="yes" required><label for="sql-work-yes">Yes</label>
+        <input type="radio" id="sql-work-no" name="sql-work" value="no"><label for="sql-work-no">No</label>
+      </div>
+      <div class="work-details" id="sql-work-details">
+        <textarea id="sql-work-notes" name="sql-work-notes" placeholder="What did you work on? (e.g. a class project, queries against a sample database, a tutorial...)"></textarea>
+      </div>
+      <div class="rating-label">Rating <span class="required-flag">(required)</span></div>
+      <div class="rating-options">
+        <input type="radio" id="sql-1" name="sql" value="1" required><label for="sql-1">1</label>
+        <input type="radio" id="sql-2" name="sql" value="2"><label for="sql-2">2</label>
+        <input type="radio" id="sql-3" name="sql" value="3"><label for="sql-3">3</label>
+        <input type="radio" id="sql-4" name="sql" value="4"><label for="sql-4">4</label>
+        <input type="radio" id="sql-5" name="sql" value="5"><label for="sql-5">5</label>
+      </div>
+      <label class="notes-label" for="sql-notes">Notes <span class="optional">(optional)</span></label>
+      <textarea id="sql-notes" name="sql-notes" placeholder="Anything you remember doing, or want to mention..."></textarea>
+    </div>
+
+    <div class="topic">
+      <div class="topic-name">Python fundamentals</div>
+      <div class="topic-hint">Syntax, variables, loops, functions, basic scripting</div>
+      <div class="work-label">Have you done any work in this area? <span class="required-flag">(required)</span> <span class="optional">(projects, exercises, coursework, etc.)</span></div>
+      <div class="toggle-options">
+        <input type="radio" id="python-work-yes" name="python-work" value="yes" required><label for="python-work-yes">Yes</label>
+        <input type="radio" id="python-work-no" name="python-work" value="no"><label for="python-work-no">No</label>
+      </div>
+      <div class="work-details" id="python-work-details">
+        <textarea id="python-work-notes" name="python-work-notes" placeholder="What did you work on? (e.g. a class project, small scripts, a tutorial...)"></textarea>
+      </div>
+      <div class="rating-label">Rating <span class="required-flag">(required)</span></div>
+      <div class="rating-options">
+        <input type="radio" id="python-1" name="python" value="1" required><label for="python-1">1</label>
+        <input type="radio" id="python-2" name="python" value="2"><label for="python-2">2</label>
+        <input type="radio" id="python-3" name="python" value="3"><label for="python-3">3</label>
+        <input type="radio" id="python-4" name="python" value="4"><label for="python-4">4</label>
+        <input type="radio" id="python-5" name="python" value="5"><label for="python-5">5</label>
+      </div>
+      <label class="notes-label" for="python-notes">Notes <span class="optional">(optional)</span></label>
+      <textarea id="python-notes" name="python-notes" placeholder="Anything you remember doing, or want to mention..."></textarea>
+    </div>
+
+    <div class="topic">
+      <div class="topic-name">Pandas / data manipulation</div>
+      <div class="topic-hint">Loading data, filtering, grouping, merging tables</div>
+      <div class="work-label">Have you done any work in this area? <span class="required-flag">(required)</span> <span class="optional">(projects, exercises, coursework, etc.)</span></div>
+      <div class="toggle-options">
+        <input type="radio" id="pandas-work-yes" name="pandas-work" value="yes" required><label for="pandas-work-yes">Yes</label>
+        <input type="radio" id="pandas-work-no" name="pandas-work" value="no"><label for="pandas-work-no">No</label>
+      </div>
+      <div class="work-details" id="pandas-work-details">
+        <textarea id="pandas-work-notes" name="pandas-work-notes" placeholder="What did you work on? (e.g. cleaning a dataset, a class project, a tutorial...)"></textarea>
+      </div>
+      <div class="rating-label">Rating <span class="required-flag">(required)</span></div>
+      <div class="rating-options">
+        <input type="radio" id="pandas-1" name="pandas" value="1" required><label for="pandas-1">1</label>
+        <input type="radio" id="pandas-2" name="pandas" value="2"><label for="pandas-2">2</label>
+        <input type="radio" id="pandas-3" name="pandas" value="3"><label for="pandas-3">3</label>
+        <input type="radio" id="pandas-4" name="pandas" value="4"><label for="pandas-4">4</label>
+        <input type="radio" id="pandas-5" name="pandas" value="5"><label for="pandas-5">5</label>
+      </div>
+      <label class="notes-label" for="pandas-notes">Notes <span class="optional">(optional)</span></label>
+      <textarea id="pandas-notes" name="pandas-notes" placeholder="Anything you remember doing, or want to mention..."></textarea>
+    </div>
+
+    <div class="topic">
+      <div class="topic-name">Data visualization</div>
+      <div class="topic-hint">Charts, plots, dashboards (Excel, Tableau, matplotlib, etc.)</div>
+      <div class="work-label">Have you done any work in this area? <span class="required-flag">(required)</span> <span class="optional">(projects, exercises, coursework, etc.)</span></div>
+      <div class="toggle-options">
+        <input type="radio" id="viz-work-yes" name="viz-work" value="yes" required><label for="viz-work-yes">Yes</label>
+        <input type="radio" id="viz-work-no" name="viz-work" value="no"><label for="viz-work-no">No</label>
+      </div>
+      <div class="work-details" id="viz-work-details">
+        <textarea id="viz-work-notes" name="viz-work-notes" placeholder="What did you work on? (e.g. a dashboard, charts for a project, a tutorial...)"></textarea>
+      </div>
+      <div class="rating-label">Rating <span class="required-flag">(required)</span></div>
+      <div class="rating-options">
+        <input type="radio" id="viz-1" name="viz" value="1" required><label for="viz-1">1</label>
+        <input type="radio" id="viz-2" name="viz" value="2"><label for="viz-2">2</label>
+        <input type="radio" id="viz-3" name="viz" value="3"><label for="viz-3">3</label>
+        <input type="radio" id="viz-4" name="viz" value="4"><label for="viz-4">4</label>
+        <input type="radio" id="viz-5" name="viz" value="5"><label for="viz-5">5</label>
+      </div>
+      <label class="notes-label" for="viz-notes">Notes <span class="optional">(optional)</span></label>
+      <textarea id="viz-notes" name="viz-notes" placeholder="Anything you remember doing, or want to mention..."></textarea>
+    </div>
+
+    <div class="topic">
+      <div class="topic-name">Basic statistics</div>
+      <div class="topic-hint">Mean/median, distributions, correlation, intro probability</div>
+      <div class="work-label">Have you done any work in this area? <span class="required-flag">(required)</span> <span class="optional">(projects, exercises, coursework, etc.)</span></div>
+      <div class="toggle-options">
+        <input type="radio" id="stats-work-yes" name="stats-work" value="yes" required><label for="stats-work-yes">Yes</label>
+        <input type="radio" id="stats-work-no" name="stats-work" value="no"><label for="stats-work-no">No</label>
+      </div>
+      <div class="work-details" id="stats-work-details">
+        <textarea id="stats-work-notes" name="stats-work-notes" placeholder="What did you work on? (e.g. coursework, analyzing a dataset, a tutorial...)"></textarea>
+      </div>
+      <div class="rating-label">Rating <span class="required-flag">(required)</span></div>
+      <div class="rating-options">
+        <input type="radio" id="stats-1" name="stats" value="1" required><label for="stats-1">1</label>
+        <input type="radio" id="stats-2" name="stats" value="2"><label for="stats-2">2</label>
+        <input type="radio" id="stats-3" name="stats" value="3"><label for="stats-3">3</label>
+        <input type="radio" id="stats-4" name="stats" value="4"><label for="stats-4">4</label>
+        <input type="radio" id="stats-5" name="stats" value="5"><label for="stats-5">5</label>
+      </div>
+      <label class="notes-label" for="stats-notes">Notes <span class="optional">(optional)</span></label>
+      <textarea id="stats-notes" name="stats-notes" placeholder="Anything you remember doing, or want to mention..."></textarea>
+    </div>
+
+    <div class="topic">
+      <div class="topic-name">Command line / Git basics</div>
+      <div class="topic-hint">Navigating a terminal, basic git commands (clone, commit, push)</div>
+      <div class="work-label">Have you done any work in this area? <span class="required-flag">(required)</span> <span class="optional">(projects, exercises, coursework, etc.)</span></div>
+      <div class="toggle-options">
+        <input type="radio" id="cli-work-yes" name="cli-work" value="yes" required><label for="cli-work-yes">Yes</label>
+        <input type="radio" id="cli-work-no" name="cli-work" value="no"><label for="cli-work-no">No</label>
+      </div>
+      <div class="work-details" id="cli-work-details">
+        <textarea id="cli-work-notes" name="cli-work-notes" placeholder="What did you work on? (e.g. cloning a repo, basic commands, a tutorial...)"></textarea>
+      </div>
+      <div class="rating-label">Rating <span class="required-flag">(required)</span></div>
+      <div class="rating-options">
+        <input type="radio" id="cli-1" name="cli" value="1" required><label for="cli-1">1</label>
+        <input type="radio" id="cli-2" name="cli" value="2"><label for="cli-2">2</label>
+        <input type="radio" id="cli-3" name="cli" value="3"><label for="cli-3">3</label>
+        <input type="radio" id="cli-4" name="cli" value="4"><label for="cli-4">4</label>
+        <input type="radio" id="cli-5" name="cli" value="5"><label for="cli-5">5</label>
+      </div>
+      <label class="notes-label" for="cli-notes">Notes <span class="optional">(optional)</span></label>
+      <textarea id="cli-notes" name="cli-notes" placeholder="Anything you remember doing, or want to mention..."></textarea>
+    </div>
+
+    <div class="submit-row">
+      <button type="button" class="submit-btn" onclick="window.print()">Print / Save as PDF</button>
+      <p class="status-msg">Fill out all sections, then print or save as PDF to share.</p>
+    </div>
+
+  </form>
+
+</div>
+
+<script>
+  const topics = ['excel', 'sql', 'python', 'pandas', 'viz', 'stats', 'cli'];
+
+  topics.forEach(key => {
+    const yes = document.getElementById(key + '-work-yes');
+    const no = document.getElementById(key + '-work-no');
+    const details = document.getElementById(key + '-work-details');
+    if (yes && details) yes.addEventListener('change', () => details.classList.add('visible'));
+    if (no && details) no.addEventListener('change', () => details.classList.remove('visible'));
+  });
+</script>
+</body>
+</html>

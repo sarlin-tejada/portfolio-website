@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Analytics - Intro and Knowledge Assessment (Week 1)</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FAF8F5;
+    --card: #FFFFFF;
+    --navy: #1F3864;
+    --navy-soft: #3C5A8A;
+    --sage: #7C9885;
+    --sage-light: #E7EFE8;
+    --text: #2B2B28;
+    --text-muted: #6B6B66;
+    --border: #E4E0D8;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 2.5rem 1.25rem 4rem;
+  }
+
+  .page {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  header {
+    margin-bottom: 1rem;
+  }
+
+  .eyebrow {
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--sage);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  h1 {
+    font-family: 'Archivo', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.01em;
+    margin-bottom: 0.4rem;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    color: var(--text-muted);
+  }
+
+  /* Progress bar */
+  .progress-wrap {
+    margin: 1.75rem 0 2rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .progress-track {
+    flex: 1;
+    height: 6px;
+    background: var(--border);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: var(--sage);
+    width: 0%;
+    transition: width 0.3s ease;
+    border-radius: 999px;
+  }
+
+  .progress-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--navy);
+    white-space: nowrap;
+    font-family: 'Archivo', sans-serif;
+    min-width: 52px;
+    text-align: right;
+  }
+
+  /* Sections */
+  section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem 1.5rem 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 0.4rem;
+  }
+
+  .section-num {
+    font-family: 'Archivo', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--sage);
+    letter-spacing: 0.04em;
+  }
+
+  h2 {
+    font-family: 'Archivo', sans-serif;
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .section-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
+
+  ul.checklist a {
+    color: var(--sage);
+    font-weight: 500;
+    text-decoration: underline;
+  }
+
+  ul.checklist a:hover {
+    text-decoration: none;
+  }
+
+  /* Checklist items */
+  ul.checklist {
+    list-style: none;
+  }
+
+  ul.checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 7px 0;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background 0.15s ease;
+  }
+
+  ul.checklist li:hover {
+    background: var(--sage-light);
+  }
+
+  ul.checklist li.sub {
+    padding-left: 28px;
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  ul.checklist li.sub::before {
+    content: "–";
+    color: var(--text-muted);
+    margin-right: 2px;
+  }
+
+  .box {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid var(--navy-soft);
+    border-radius: 4px;
+    margin-top: 2px;
+    position: relative;
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+
+  li.sub .box { display: none; }
+
+  li.checked .box {
+    background: var(--sage);
+    border-color: var(--sage);
+  }
+
+  li.checked .box::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    width: 5px;
+    height: 9px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+
+  li.checked .label {
+    color: var(--text-muted);
+    text-decoration: line-through;
+    text-decoration-color: var(--border);
+  }
+
+  .schedule-note {
+    font-size: 14px;
+    color: var(--sage);
+    margin: -0.1rem 0 0.6rem;
+  }
+
+  @media print {
+    body { padding: 1rem; }
+    .progress-wrap { display: none; }
+    ul.checklist li:hover { background: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="eyebrow">Data analytics</div>
+    <p class="schedule-note">Every Wednesday at 3pm — no fixed time limits, we'll move through this at whatever pace makes sense.</p>
+    <h1>Week 1: Intro &amp; Knowledge Assessment</h1>
+    <p class="subtitle">Reconnect, evaluate where to start, and next steps.</p>
+  </header>
+
+  <div class="progress-wrap">
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-label" id="progressLabel">0 / 0</div>
+  </div>
+
+  <section>
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <h2>Intro &amp; Context</h2>
+    </div>
+    <p class="section-desc">Reconnect, get a sense of where you're starting from, and identify any obstacles before diving in.</p>
+    <ul class="checklist">
+      <li><span class="box"></span><span class="label">Catch up — what's new, how are things going</span></li>
+      <li><span class="box"></span><span class="label">What do you know about sports analytics?</span></li>
+      <li><span class="box"></span><span class="label">What will get in your way? Any obstacles, goals, or timelines currently on your mind</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <h2>Knowledge Assessment</h2>
+    </div>
+    <p class="section-desc">It's been about a year since active skill-building — let's see what's retained, what's rusty, and what needs a refresh. No pressure, this is for guidance as we plan.</p>
+    <ul class="checklist">
+      <li><span class="box"></span><span class="label">Fill out the <a href="/data-coaching/knowledge-assessment" target="_blank" rel="noopener">knowledge assessment</a></span></li>
+      <li><span class="box"></span><span class="label">Review knowledge assessment responses together</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <h2>Program Structure Walkthrough</h2>
+    </div>
+    <p class="section-desc">I'll share the structure of the data analytics program I'm currently in — this gives us a roadmap to work from.</p>
+    <ul class="checklist">
+      <li><span class="box"></span><span class="label">Walk through the overall module sequence / topic progression</span></li>
+      <li><span class="box"></span><span class="label">Identify which modules feel most relevant to where you're starting</span></li>
+      <li><span class="box"></span><span class="label">Note any areas you're curious and interested about</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="section-num">—</span>
+      <h2>Wrap-Up</h2>
+    </div>
+    <ul class="checklist">
+      <li><span class="box"></span><span class="label">Recap what we covered, any questions, and what stood out</span></li>
+      <li><span class="box"></span><span class="label">Discuss focus area for next week and circle back</span></li>
+    </ul>
+  </section>
+
+</div>
+
+<script>
+  const items = document.querySelectorAll('ul.checklist li:not(.sub)');
+  const fill = document.getElementById('progressFill');
+  const label = document.getElementById('progressLabel');
+  const total = items.length;
+
+  function updateProgress() {
+    const checked = document.querySelectorAll('ul.checklist li.checked').length;
+    fill.style.width = (total ? (checked / total) * 100 : 0) + '%';
+    label.textContent = checked + ' / ' + total;
+  }
+
+  items.forEach(item => {
+    item.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A') return;
+      item.classList.toggle('checked');
+      updateProgress();
+    });
+  });
+
+  updateProgress();
+</script>
+</body>
+</html>
