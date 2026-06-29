@@ -201,6 +201,12 @@
   line-height: 1.75;
 }
 
+.prose a:hover { 
+  background-color: var(--color-accent); 
+  border-radius: var(--radius-md);
+  text-decoration: none;
+}
+
 /* Inline code styling */
 .prose code {
   @apply rounded px-1.5 py-0.5 font-medium font-mono border whitespace-pre-wrap;
