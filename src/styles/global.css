@@ -189,10 +189,10 @@
   --tw-prose-links: var(--color-foreground);
   --tw-prose-bold: var(--color-foreground);
   --tw-prose-counters: var(--color-muted-foreground);
-  --tw-prose-bullets: var(--color-border);
+  --tw-prose-bullets: var(--color-accent);
   --tw-prose-hr: var(--color-border);
   --tw-prose-quotes: var(--color-foreground);
-  --tw-prose-quote-borders: var(--color-border);
+  --tw-prose-quote-borders: var(--color-accent);
   --tw-prose-captions: var(--color-muted-foreground);
   --tw-prose-code: var(--color-foreground);
   --tw-prose-pre-bg: #f8fafc; /* Subtle off-white for light mode */
