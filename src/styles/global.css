@@ -269,8 +269,17 @@
 .dark .prose {
   --tw-prose-body: #d1d5dc;
   --tw-prose-headings: #eaedf3;
+  --tw-prose-bullets: var(--color-primary);
+  --tw-prose-quote-borders: var(--color-primary);
   --tw-prose-pre-bg: var(--shiki-dark-bg);
   --tw-prose-links: var(--color-foreground);
+}
+
+.dark .prose a:hover { 
+  color: var(--color-primary);
+  background-color: var(--color-accent); 
+  border-radius: var(--radius-md);
+  text-decoration: none;
 }
 
 /* Heading anchor links */
